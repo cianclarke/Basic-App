@@ -25,4 +25,20 @@ $fh.ready(function() {
       }
     );
   };
+  
+  document.getElementById('fb_button').onclick = function() {
+    var username = document.getElementById('fb_username').value;
+    $fh.act({
+      act: 'getByFacebookUsername',
+      req: {
+        username: username
+      }
+    }, function(res){
+      alert(JSON.stringify(res));
+    }, function(msg, err) {
+      alert(err.error);
+    });
+  };
+
+
 });
